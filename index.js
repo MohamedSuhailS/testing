@@ -24,12 +24,6 @@ db.login('syedsuhail926.ss@cunning-hawk-bhslhk.com', 'suhail.S123','G2X1LZUqCMY5
   if (err) { return console.error(err); }
 });
 app.use(cookieParser());
-app.use(session({ 
-    secret: '123456cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 1000000 }
-}))
 app.use('/', require('./routes/page'));
 app.use('/auth', require('./routes/auth'));
 app.use('/admin', require('./routes/adminauth'));
