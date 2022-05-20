@@ -34,6 +34,4 @@ app.use('/', require('./routes/page'));
 app.use('/auth', require('./routes/auth'));
 app.use('/admin', require('./routes/adminauth'));
 app.use('/admin/admin', require('./routes/adminauth'));
-app.listen(3000, () => {
-  console.log('Server has been started on 3000...');
-});
+
