@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druken Monkey</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="/" class="logo">
+        <img src="image/log.png" alt="">
+    </a>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="#about">about</a>
+        <a href="#products">suhail</a>
+        
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search product here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+</header>
+
+<section class="products" id="products">
+
+    <h1 class="heading mt-5"> our <span>cart</span> </h1>
+
+    <div class="box-container">
+
+        <% for(var i = 0; i< record.length; i++) { %>
+
+        <div class="box">
+            <form action="auth/removecart" method="post">
+                <input style="display: none;" type="text" class="fas fa-shopping-cart" Name="removecart" value="<%=record[i]['Id']%>" autocomplete="off">
+                <input style="margin-top:10px;border:1px solid white;padding:5px;font-size: 18px;background-color:black;color:white;font-family:Arial, Helvetica, sans-serif;cursor:grab" type="submit" class="fas fa-shopping-cart" value="Remove"/>
+             </form>   
+            <div class="icons">
+            <form action="/detail" method="post">
+                    <input style="display: none;" type="text" class="fas fa-shopping-cart" Name="Names" value="<%=record[i]['Name']%>" autocomplete="off">
+                    <input style="display:none;margin-top:10px;border:1px solid white;padding:5px;font-size: 18px;background-color:black;color:white;font-family:Arial, Helvetica, sans-serif;cursor:grab" type="submit" class="fas fa-shopping-cart" value="Buy Now"/>
+                 </form>
+            </div>
+            <div class="image">
+                
+                <img src=<%= record[i]['image__c'] %> alt="">
+            </div>
+            <div class="content">
+                <h3><%= record[i]['juicename__c'] %></h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$<%= record[i]['price__c'] %> <span>$399</span></div>
+            </div>
+        </div>
+
+        <% } %>
+        <h1 style="color: white; margin:30px;font-size:24px;border:1px solid white; height:80px;padding:20px;text-align:center;">Total Amount : ₹<%= total %>/-</h1>
+    </div>
+    
+    <a class="btn btn-success edit" href="/buys">Checkout Products</a>
+</section>
+
+<section class="footer">
+
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+
+    <div class="links">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">menu</a>
+        <a href="#">products</a>
+        <a href="#">review</a>
+        <a href="#">contact</a>
+        <a href="#">blogs</a>
+    </div>
+
+    <div class="credit">created by <span>Mohamed Suhail</span> | all rights reserved</div>
+
+</section>
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

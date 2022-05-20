@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druken Monkey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="header">
+    <a href="/" class="logo"><img src="image/log.png" alt=""></a>
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="#about">about</a>
+        <a href="#products">suhail</a>
+        <a href="#contact">contact</a>
+    </nav>
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+     <a href="/cartpage">   <div class="fas fa-shopping-cart" id="cart-btn"><span style="font-size:18px;border-radius:50%;border:1px solid white;padding:2px;margin-left:3px;position:relative;top:-10px;left:3px;"><%= title %></span></div></a>
+     <a href="/user">   <div class="fa-solid fa-user-check" id="cart-btn"><span style="font-size:16px;padding:2px;margin-left:3px;position:relative;top:-10px;left:3px;"><%= user %></span></div></a>
+     <div class="fas fa-bars" id="menu-btn"></div>
+
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search product here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+</header>
+<section class="home" id="home">
+    <div class="content">
+        <h3>fresh juice in the day</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
+        <a href="#" class="btn" style="background-color: rgb(206, 147, 9);">get yours now</a>
+    </div>
+</section>
+<section class="about" id="about">
+    <h1 class="heading"> <span>about</span> us </h1>
+    <div class="row">
+        <div class="image">
+            <img src="image/product-1.png" alt="">
+        </div>
+        <div class="content">
+            <h3>what makes our juice special?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?</p>
+            <a href="#" class="btn"  style="background-color: rgb(206, 147, 9);">learn more</a>
+        </div>
+    </div>
+</section>
+<section class="products" id="products">
+    <h1 class="heading"> our <span>products</span> </h1>
+    <div class="box-container">
+        <% for(var i = 0; i< data.totalSize; i++) { %>
+        <div class="box">
+            <form action="auth/addcart" method="post">
+                <input style="display: none;" type="text" class="fas fa-shopping-cart" Name="cartvalue" value="<%=data.records[i]['Name']%>" autocomplete="off">
+                <input  type="submit" class="btn btn-success edit" value="Add To Cart"/>
+            </form>
+            <div class="icons">
+                <form action="/detail" method="post">
+                    <input style="display: none;" type="text" class="fas fa-shopping-cart" Name="Names" value="<%=data.records[i]['Name']%>" autocomplete="off">
+                    <input style="display: none;margin-top:10px;border:1px solid white;padding:5px;font-size: 18px;background-color:black;color:white;font-family:Arial, Helvetica, sans-serif;cursor:grab" type="submit" class="fas fa-shopping-cart" value="Buy Now"/>
+                </form>
+            </div>
+            <div class="image">
+                <img src=<%= data.records[i]['image__c'] %> alt="">
+            </div>
+            <div class="content">
+                <h3><%= data.records[i]['Name'] %></h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$<%= data.records[i]['price__c'] %> <span>$399</span></div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</section>
+<section class="footer">
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+    <div class="links">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">menu</a>
+        <a href="#">products</a>
+        <a href="#">review</a>
+        <a href="#">contact</a>
+        <a href="#">blogs</a>
+    </div>
+    <div class="credit">created by <span>Mohamed Suhail</span> | all rights reserved</div>
+</section>
+<script src="js/script.js"></script>
+
+</body>
+</html>
