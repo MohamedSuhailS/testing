@@ -207,40 +207,41 @@
             </div></div></div>
       <div class="row mt-3">
           <h3>Order List</h3>
-          <div class="col-md-8 mt-3">
+          <div class="col-md-10 mt-3">
             <table class="table">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Ordered Date</th>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Total Price</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <% for(var i = 0; i< orders.totalSize; i++) { %>
-                  <tr>
-                    <th scope="row"><%= orders.records[i]['Id'] %></th>
-                    <td><%= orders.records[i]['Name'] %></td>
-                    <td><%= orders.records[i]['juicename__c'] %></td>
-                    <td><%= orders.records[i]['price__c'] %></td>
-                    <td><%= orders.records[i]['CreatedDate'] %></td>
-                  </tr>
-  <% } %>
-                </tbody>
+                  <%  var orderid = ' '; %>
+                  <%  var total = 0; %>
+                  <% for(var i = 0; i< orders.totalSize; i++) { %>
+                      <tr>
+                            <% if(orders.records[i]['orderid__c'] != orderid) {%>   
+                               <% var orderid =  orders.records[i]['orderid__c']; %>
+                             <td><%= orderid %></td>                 
+                               <td><%= orders.records[i]['Name'] %></td>   
+                               <% for(var j = 0; j< orders.totalSize; j++) { %>
+                              <% if(orders.records[j]['orderid__c'] == orderid) {%>   
+                              <% var total =  total + orders.records[j]['totalprice__c']; %>
+                              <% } %>
+                              <% } %>
+                               <td><%= total %></td>                 
+                               <td><a href="/admininvoice/<%= orderid%>" ><span style="margin: 15px;"><i  style="margin: 5px;" class="fa-solid fa-eye"></i>View Invoice</span></a></td>
+                              <%  var total = 0; %>
+                              <% } %>
+                          </tr>
+                      <% } %>
+                    </tbody>
               </table>
         </div>
           </div>
       </div>
   </div>
 </main>
-
-<script>
-    window.setInterval('refresh()', 2000); 	
-    function refresh() {
-        window .location.reload();
-    }
-</script>
   </body>
 </html>

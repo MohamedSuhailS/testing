@@ -34,6 +34,6 @@ app.use('/', require('./routes/page'));
 app.use('/auth', require('./routes/auth'));
 app.use('/admin', require('./routes/adminauth'));
 app.use('/admin/admin', require('./routes/adminauth'));
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(3000, () => {
+  console.log('Server has been started on 3000...');
 });

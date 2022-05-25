@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Druken Monkey</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -18,23 +20,19 @@
 <!-- header section starts  -->
 
 <header class="header">
-
-    <a href="/" class="logo">
-        <img src="image/log.png" alt="">
-    </a>
-
+    <a href="/" class="logo"><img src="image/log.png" alt=""></a>
     <nav class="navbar">
         <a href="/">home</a>
         <a href="#about">about</a>
         <a href="#products">suhail</a>
-        
         <a href="#contact">contact</a>
     </nav>
-
     <div class="icons">
         <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
+     <a href="/cartpage"><div class="fas fa-shopping-cart" id="cart-btn"><span style="font-size:18px;border-radius:50%;border:1px solid white;padding:2px;margin-left:3px;position:relative;top:-10px;left:3px;"><%= title %></span></div></a>
+     <a href="/user"><div class="fa-solid fa-user-check" id="cart-btn"><span style="font-size:16px;padding:2px;margin-left:3px;position:relative;top:-10px;left:3px;"><%= cusname %></span></div></a>     
+     <div class="fas fa-bars" id="menu-btn"></div>
+
     </div>
 
     <div class="search-form">
@@ -43,9 +41,9 @@
     </div>
 </header>
 
-<section class="products" id="products">
-
-    <h1 class="heading mt-5"> our <span>cart</span> </h1>
+<section class="products mt-5" id="products" style="margin-top: 120px !important;">
+   
+    <a href="/yourorder"><button style="border-radius:10px; padding:12px;background-color:rgb(244, 219, 32);margin-bottom:20px;color:black;font-size:15px;font-weight:600;">My Orders</button></a>
 
     <div class="box-container">
 
