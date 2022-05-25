@@ -35,4 +35,4 @@ app.use('/auth', require('./routes/auth'));
 app.use('/admin', require('./routes/adminauth'));
 app.use('/admin/admin', require('./routes/adminauth'));
 
-app.listen(port,  () => console.info(`Listening on`))
+app.listen(process.env.PORT || 5000)
