@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static((__dirname + 'public/css')));
 app.use('/image', express.static((__dirname + 'public/image')));
-db.login('syedsuhail926.ss@cunning-hawk-bhslhk.com', 'suhail.S123','G2X1LZUqCMY53sLQ5IMvoFybA', function(err, res) {
+db.login('syedsuhail926.ss@cunning-hawk-bhslhk.com', 'suhail.S123','RM0pfNkTL1bTDiwEDT6yCxjso', function(err, res) {
   if (err) { return console.error(err); }
 });
 app.use(cookieParser());
